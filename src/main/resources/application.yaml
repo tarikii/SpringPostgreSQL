@@ -1,5 +1,5 @@
 spring:
   datasource:
-    url: jdbc:postgresql://192.168.22.129:5432/pvz
-    username: tarik
-    password: lechuza
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: secret

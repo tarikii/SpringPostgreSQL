@@ -10,11 +10,15 @@ public class CharacterController {
     @Autowired
     CharacterService characterService;
 
-    public List<CharacterData> getAllChracters() {
+    public List<CharacterDto> getAllChracters() {
         List<Character> characters = characterService.findAll();
-        List<CharacterData> characterDatos = characters.stream().map(CharacterData::new).toList();
+        List<CharacterDto> characterDatos = characters.stream().map(CharacterDto::new).toList();
         //List<CharacterDto> characterDtos = characters.stream().map(character -> new CharacterDto(character)).toList();
         return characterDatos;
 
+    }
+    public CharacterDto addCharacter(Character characterDto) {
+        Character character = characterService.newCharacter(characterDto);
+        return new CharacterDto(character);
     }
 }

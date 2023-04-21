@@ -3,7 +3,7 @@ package com.example.SpringPostgreSQL;
 import lombok.Data;
 
 @Data
-public class CharacterData {
+public class CharacterDto {
     int characterId;
     int characterTypeId;
     int weaponId;
@@ -15,7 +15,7 @@ public class CharacterData {
     String FPSClass;
 
 
-    public CharacterData(int characterId, int characterTypeId, int weaponId, String name, String image, String health, String variant, String abilities, String FPSClass) {
+    public CharacterDto(int characterId, int characterTypeId, int weaponId, String name, String image, String health, String variant, String abilities, String FPSClass) {
         this.characterId = characterId;
         this.characterTypeId = characterTypeId;
         this.weaponId = weaponId;
@@ -27,7 +27,7 @@ public class CharacterData {
         this.FPSClass = FPSClass;
     }
 
-    public CharacterData(Character character){
+    public CharacterDto(Character character){
         this.characterId = character.getCharacterId();
         this.characterTypeId = character.getCharacterTypeId();
         this.weaponId = character.getWeaponId();

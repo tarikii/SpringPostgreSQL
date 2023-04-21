@@ -1,9 +1,9 @@
 package com.example.SpringPostgreSQL;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -15,8 +15,14 @@ public class CharacterResource {
     CharacterController characterController;
 
     @GetMapping
-    public List<CharacterData> readAll() {
+    public List<CharacterDto> readAll() {
         return characterController.getAllChracters();
+    }
+
+    @PostMapping
+    public ResponseEntity<CharacterDto> createCharacter(@RequestBody Character character) {
+        CharacterDto createdCharacter = characterController.addCharacter(character);
+        return ResponseEntity.status(HttpStatus.CREATED).body(createdCharacter);
     }
 }
 

@@ -48,7 +48,7 @@ public class Character {
         this.FPSClass = FPSClass;
     }
 
-    public Character(CharacterData characterData) {
+    public Character(CharacterDto characterData) {
         this.characterId = characterData.getCharacterId();
         this.characterTypeId = characterData.getCharacterTypeId();
         this.weaponId = characterData.getWeaponId();
